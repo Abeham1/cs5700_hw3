@@ -70,6 +70,12 @@ namespace SelectShape
                     this.txtRadius1.Visible = true;
                     break;
                 case "Triangle":
+                    this.lblX1.Visible = true;
+                    this.lblY1.Visible = true;
+                    this.lblX2.Visible = true;
+                    this.lblY2.Visible = true;
+                    this.lblX3.Visible = true;
+                    this.lblY3.Visible = true;
                     this.lblPoint1.Visible = true;
                     this.lblPoint2.Visible = true;
                     this.lblPoint3.Visible = true;

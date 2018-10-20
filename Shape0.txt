@@ -1,1 +1,6 @@
-Embedded Image,10,10,200,200,C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\image.jpg
+Triangle,100,100,730,730,800,800
+Triangle,73,56,52,123,89,12
+Triangle,100,100,500,500,100,500
+Square,123,50,150
+Ellipse,500,500,100,100
+Embedded Image,100,100,250,250,C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\image.jpg
