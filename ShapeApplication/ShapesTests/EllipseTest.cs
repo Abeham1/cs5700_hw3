@@ -10,17 +10,17 @@ namespace ShapesTests
         [TestMethod]
         public void TestValidConstruction()
         {
-            var ellipse = new Ellipse(1, 3, 2.5, 3.5);
-            Assert.AreEqual(1, ellipse.Center.X);
-            Assert.AreEqual(3, ellipse.Center.Y);
-            Assert.AreEqual(2.5, ellipse.horizontalRadius);
-            Assert.AreEqual(3.5, ellipse.verticalRadius);
+            var ellipse = new Ellipse(new Point(1, 4), 7, 2);
+            Assert.AreEqual(1, ellipse.point1.X);
+            Assert.AreEqual(4, ellipse.point1.Y);
+            Assert.AreEqual(7, ellipse.length);
+            Assert.AreEqual(2, ellipse.width);
 
-            ellipse = new Ellipse(new Point(1.23, 4.56), 7.89, 2.75);
-            Assert.AreEqual(1.23, ellipse.Center.X);
-            Assert.AreEqual(4.56, ellipse.Center.Y);
-            Assert.AreEqual(7.89, ellipse.horizontalRadius);
-            Assert.AreEqual(2.75, ellipse.verticalRadius);
+            ellipse = new Ellipse(new Point(45, 103), 89, 999);
+            Assert.AreEqual(45, ellipse.point1.X);
+            Assert.AreEqual(103, ellipse.point1.Y);
+            Assert.AreEqual(89, ellipse.length);
+            Assert.AreEqual(999, ellipse.width);
         }
 
         [TestMethod]
@@ -28,127 +28,17 @@ namespace ShapesTests
         {
             try
             {
-                new Ellipse(null, 2.5, 2.75);
+                new Ellipse(null, 0, 0);
                 Assert.Fail("Expected exception not thrown");
             }
             catch (ShapeException e)
             {
-                Assert.AreEqual("Invalid center point", e.Message);
+                Assert.AreEqual("Invalid Shape!", e.Message);
             }
 
             try
             {
-                new Ellipse(new Point(1, 2), int.PositiveInfinity, int.PositiveInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid radius", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(new Point(1, 2), int.NegativeInfinity, int.NegativeInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid radius", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(new Point(1, 2), int.NaN, int.NaN);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid radius", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(int.PositiveInfinity, 2, 3, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid x-location point", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(int.NegativeInfinity, 2, 3, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid x-location point", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(int.NaN, 2, 3, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid x-location point", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(1, int.PositiveInfinity, 3, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid y-location point", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(1, int.NegativeInfinity, 3, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid y-location point", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(1, int.NaN, 3, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid y-location point", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(1, 2, int.PositiveInfinity, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid radius", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(1, 2, int.PositiveInfinity, 4);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid radius", e.Message);
-            }
-
-            try
-            {
-                new Ellipse(1, 2, int.NaN, 4);
+                new Ellipse(new Point(1, 2), -3, -5);
                 Assert.Fail("Expected exception not thrown");
             }
             catch (ShapeException e)
@@ -160,101 +50,30 @@ namespace ShapesTests
         [TestMethod]
         public void TestMove()
         {
-            Ellipse myEllipse = new Ellipse(1, 2, 5, 6);
-            Assert.AreEqual(1, myEllipse.Center.X, 0);
-            Assert.AreEqual(2, myEllipse.Center.Y, 0);
-            Assert.AreEqual(5, myEllipse.horizontalRadius, 0);
-            Assert.AreEqual(6, myEllipse.verticalRadius, 0);
+            Ellipse myEllipse = new Ellipse(new Point(1, 2), 5, 6);
+            Assert.AreEqual(1, myEllipse.point1.X);
+            Assert.AreEqual(2, myEllipse.point1.Y);
+            Assert.AreEqual(5, myEllipse.length);
+            Assert.AreEqual(6, myEllipse.width);
 
             myEllipse.Move(3, 4);
-            Assert.AreEqual(4, myEllipse.Center.X, 0);
-            Assert.AreEqual(6, myEllipse.Center.Y, 0);
-            Assert.AreEqual(5, myEllipse.horizontalRadius, 0);
-            Assert.AreEqual(6, myEllipse.verticalRadius, 0);
-
-            myEllipse.Move(0.123, 0.456);
-            Assert.AreEqual(4.123, myEllipse.Center.X, 0);
-            Assert.AreEqual(6.456, myEllipse.Center.Y, 0);
-            Assert.AreEqual(5, myEllipse.horizontalRadius, 0);
-            Assert.AreEqual(6, myEllipse.verticalRadius, 0);
-
-            myEllipse.Move(-0.123, -0.456);
-            Assert.AreEqual(4, myEllipse.Center.X, 0);
-            Assert.AreEqual(6, myEllipse.Center.Y, 0);
-            Assert.AreEqual(5, myEllipse.horizontalRadius, 0);
-            Assert.AreEqual(6, myEllipse.verticalRadius, 0);
+            Assert.AreEqual(4, myEllipse.point1.X);
+            Assert.AreEqual(6, myEllipse.point1.Y);
+            Assert.AreEqual(5, myEllipse.length);
+            Assert.AreEqual(6, myEllipse.width);
 
             myEllipse.Move(-12, -26);
-            Assert.AreEqual(-8, myEllipse.Center.X, 0);
-            Assert.AreEqual(-20, myEllipse.Center.Y, 0);
-            Assert.AreEqual(5, myEllipse.horizontalRadius, 0);
-            Assert.AreEqual(6, myEllipse.verticalRadius, 0);
+            Assert.AreEqual(-8, myEllipse.point1.X);
+            Assert.AreEqual(-20, myEllipse.point1.Y);
+            Assert.AreEqual(5, myEllipse.length);
+            Assert.AreEqual(6, myEllipse.width);
 
-            try
-            {
-                myEllipse.Move(int.PositiveInfinity, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-            try
-            {
-                myEllipse.Move(int.NegativeInfinity, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-            try
-            {
-                myEllipse.Move(int.NaN, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-            try
-            {
-                myEllipse.Move(1, int.PositiveInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                myEllipse.Move(1, int.PositiveInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                myEllipse.Move(1, int.NaN);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
         }
 
         [TestMethod]
         public void TestCaluculateArea()
         {
-            Ellipse myEllipse = new Ellipse(1, 2, 5, 6);
+            Ellipse myEllipse = new Ellipse(new Point(1, 2), 5, 6);
             Assert.AreEqual(94.25, myEllipse.CalculateArea(), 1);
         }
     }

@@ -95,7 +95,7 @@ namespace ShapeApplication
             renderShapeList();
         }
 
-        private Shape readShape(string shapeText)
+        public Shape readShape(string shapeText)
         {
             List<string> shapeDetails = shapeText.Split(',').ToList();
             switch (shapeDetails[0])

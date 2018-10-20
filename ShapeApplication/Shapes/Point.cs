@@ -7,8 +7,8 @@
 
         public Point(int x, int y)
         {
-            Validator.Validateint(x, "Invalid x-location point");
-            Validator.Validateint(y, "Invalid y-location point");
+            Validator.ValidatePositiveint(x, "Invalid x-location point");
+            Validator.ValidatePositiveint(y, "Invalid y-location point");
             X = x;
             Y = y;
         }

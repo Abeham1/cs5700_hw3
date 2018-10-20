@@ -13,9 +13,9 @@ namespace ShapesTests
             Assert.AreEqual(1, p1.X, 0);
             Assert.AreEqual(2, p1.Y, 0);
 
-            p1 = new Point(1.111, 2.222);
-            Assert.AreEqual(1.111, p1.X, 0);
-            Assert.AreEqual(2.222, p1.Y, 0);
+            p1 = new Point(1, 2);
+            Assert.AreEqual(1, p1.X, 0);
+            Assert.AreEqual(2, p1.Y, 0);
         }
 
         [TestMethod]
@@ -23,57 +23,16 @@ namespace ShapesTests
         {
             try
             {
-                new Point(1, int.PositiveInfinity);
+                new Point(1, -1);
                 Assert.Fail("Expected exception not thrown");
             }
             catch (ShapeException e)
             {
                 Assert.AreEqual("Invalid y-location point", e.Message);
             }
-
             try
             {
-                new Point(1, int.NegativeInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid y-location point", e.Message);
-            }
-
-            try
-            {
-                new Point(1, int.NaN);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid y-location point", e.Message);
-            }
-
-            try
-            {
-                new Point(int.PositiveInfinity, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid x-location point", e.Message);
-            }
-
-            try
-            {
-                new Point(int.NegativeInfinity, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid x-location point", e.Message);
-            }
-
-            try
-            {
-                new Point(int.NaN, 1);
+                new Point(-1, 1);
                 Assert.Fail("Expected exception not thrown");
             }
             catch (ShapeException e)
@@ -91,48 +50,17 @@ namespace ShapesTests
             Assert.AreEqual(11, p1.X, 0);
             Assert.AreEqual(2, p1.Y, 0);
 
-            p1.MoveX(0.1234);
-            Assert.AreEqual(11.1234, p1.X, 0);
+            p1.MoveX(0);
+            Assert.AreEqual(11, p1.X, 0);
             Assert.AreEqual(2, p1.Y, 0);
 
             p1.MoveX(-20);
-            Assert.AreEqual(-8.8766, p1.X, 0);
+            Assert.AreEqual(-8, p1.X, 0);
             Assert.AreEqual(2, p1.Y, 0);
 
             p1.MoveX(0);
-            Assert.AreEqual(-8.8766, p1.X, 0);
+            Assert.AreEqual(-8, p1.X, 0);
             Assert.AreEqual(2, p1.Y, 0);
-
-            try
-            {
-                p1.MoveX(int.PositiveInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-
-            try
-            {
-                p1.MoveX(int.NegativeInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-            try
-            {
-                p1.MoveX(int.NaN);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
         }
 
         [TestMethod]
@@ -144,47 +72,17 @@ namespace ShapesTests
             Assert.AreEqual(1, p1.X, 0);
             Assert.AreEqual(12, p1.Y, 0);
 
-            p1.MoveY(0.1234);
+            p1.MoveY(0);
             Assert.AreEqual(1, p1.X, 0);
-            Assert.AreEqual(12.1234, p1.Y, 0);
+            Assert.AreEqual(12, p1.Y, 0);
 
             p1.MoveY(-20);
             Assert.AreEqual(1, p1.X, 0);
-            Assert.AreEqual(-7.8766, p1.Y, 0);
+            Assert.AreEqual(-7, p1.Y, 0);
 
             p1.MoveY(0);
             Assert.AreEqual(1, p1.X, 0);
-            Assert.AreEqual(-7.8766, p1.Y, 0);
-
-            try
-            {
-                p1.MoveY(int.PositiveInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                p1.MoveY(int.NegativeInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                p1.MoveY(int.NaN);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
+            Assert.AreEqual(-7, p1.Y, 0);
         }
 
         [TestMethod]
@@ -196,85 +94,25 @@ namespace ShapesTests
             Assert.AreEqual(11, p1.X, 0);
             Assert.AreEqual(22, p1.Y, 0);
 
-            p1.Move(0.222, 0.333);
-            Assert.AreEqual(11.222, p1.X, 0);
-            Assert.AreEqual(22.333, p1.Y, 0);
+            p1.Move(0, 0);
+            Assert.AreEqual(11, p1.X, 0);
+            Assert.AreEqual(22, p1.Y, 0);
 
-            p1.Move(-0.222, -0.333);
+            p1.Move(0, 0);
             Assert.AreEqual(11, p1.X, 0);
             Assert.AreEqual(22, p1.Y, 0);
 
             p1.Move(-20, -30);
             Assert.AreEqual(-9, p1.X, 0);
             Assert.AreEqual(-8, p1.Y, 0);
-
-            try
-            {
-                p1.Move(1, int.PositiveInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                p1.Move(1, int.NegativeInfinity);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                p1.Move(1, int.NaN);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-y value", e.Message);
-            }
-
-            try
-            {
-                p1.Move(int.PositiveInfinity, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-            try
-            {
-                p1.Move(int.NegativeInfinity, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
-
-            try
-            {
-                p1.Move(int.NaN, 1);
-                Assert.Fail("Expected exception not thrown");
-            }
-            catch (ShapeException e)
-            {
-                Assert.AreEqual("Invalid delta-x value", e.Message);
-            }
         }
 
         [TestMethod]
         public void TestCopy()
         {
-            Point p1 = new Point(-123.45, -23.45);
-            Assert.AreEqual(-123.45, p1.X, 0);
-            Assert.AreEqual(-23.45, p1.Y, 0);
+            Point p1 = new Point(123, 23);
+            Assert.AreEqual(123, p1.X, 0);
+            Assert.AreEqual(23, p1.Y, 0);
 
             Point p2 = p1.Copy();
             Assert.AreNotSame(p1, p2);
