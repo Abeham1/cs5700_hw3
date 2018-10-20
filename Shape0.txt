@@ -1,0 +1,1 @@
+Embedded Image,10,10,200,200,C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\image.jpg

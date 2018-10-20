@@ -1,0 +1,11 @@
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\bin\Debug\netstandard1.4\FactoryShape.deps.json
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\bin\Debug\netstandard1.4\FactoryShape.dll
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\bin\Debug\netstandard1.4\FactoryShape.pdb
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\bin\Debug\netstandard1.4\Shapes.dll
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\bin\Debug\netstandard1.4\Shapes.pdb
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\obj\Debug\netstandard1.4\FactoryShape.csprojAssemblyReference.cache
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\obj\Debug\netstandard1.4\FactoryShape.csproj.CoreCompileInputs.cache
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\obj\Debug\netstandard1.4\FactoryShape.AssemblyInfo.cs
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\obj\Debug\netstandard1.4\FactoryShape.csproj.CopyComplete
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\obj\Debug\netstandard1.4\FactoryShape.dll
+C:\Users\abrah\Desktop\School\5700 - Object Oriented Programming\HW3\ShapeApplication\ShapeFactory\obj\Debug\netstandard1.4\FactoryShape.pdb
